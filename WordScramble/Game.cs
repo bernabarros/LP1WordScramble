@@ -24,6 +24,8 @@ namespace WordScramble
         /// </summary>
         public Game()
         {
+            wordProvider = new WordProvider();
+            gameStats = new GameResult[5];
             // ////////// => TO IMPLEMENT <= //////////// //
         }
 
@@ -81,12 +83,12 @@ namespace WordScramble
             /// <summary>
             /// The randomly chosen word for the current round.
             /// </summary>
-            string word = // ////////// => TO IMPLEMENT <= //////////// //
+            string word = wordProvider.GetRandomWord();// ////////// => TO IMPLEMENT <= //////////// //
 
             /// <summary>
             /// The scrambled version of the word.
             /// </summary>
-            string scrambledWord = // ////////// => TO IMPLEMENT <= //////////// //
+            string scrambledWord = wordProvider.GetScrambledWord(word);// ////////// => TO IMPLEMENT <= //////////// //
 
             AnsiConsole.Clear();
             AnsiConsole.MarkupLine("[bold green]Unscramble the word:[/]");
@@ -107,7 +109,13 @@ namespace WordScramble
             /// <summary>
             /// Checks if the player's guess is correct.
             /// </summary>
-            bool isCorrect = // ////////// => TO IMPLEMENT <= //////////// //
+            
+            bool isCorrect = true;// ////////// => TO IMPLEMENT <= //////////// //
+
+            if(userInput != word)
+            {
+                isCorrect = false;
+            }
 
             if (isCorrect)
             {
@@ -119,10 +127,11 @@ namespace WordScramble
                 for (int i = gameStats.Length - 1; i > 0; i--)
                 {
                     // ////////// => TO IMPLEMENT <= //////////// //
+
                 }
 
                 // Add new result at the beginning
-                gameStats[0] = // ////////// => TO IMPLEMENT <= //////////// //
+                gameStats[0] = new GameResult(word,timeTaken);// ////////// => TO IMPLEMENT <= //////////// //
             }
             else
             {
