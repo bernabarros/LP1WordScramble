@@ -127,7 +127,7 @@ namespace WordScramble
                 for (int i = gameStats.Length - 1; i > 0; i--)
                 {
                     // ////////// => TO IMPLEMENT <= //////////// //
-
+                    gameStats[i]= gameStats[i-1];
                 }
 
                 // Add new result at the beginning
@@ -173,6 +173,8 @@ namespace WordScramble
                 // Add row to table
                 // Table.AddRow() only accepts strings
                 // ////////// => TO IMPLEMENT <= //////////// //
+                table.AddRow($"{i+1}",$"{gameStats[i].Word}",
+                    $"{gameStats[i].TimeTaken}");
             }
 
             AnsiConsole.Write(table);
