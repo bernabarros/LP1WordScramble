@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks.Dataflow;
 using Humanizer;
 
 namespace WordScramble
@@ -39,10 +40,12 @@ namespace WordScramble
                 string[] fileWords = File.ReadAllLines(filePath);
                 foreach (string word in fileWords)
                 {
+                    string word_scramble;
+                    word_scramble = word.Transform(To.UpperCase);
                     // Use the GetScrambledWord method to get the current word
                     // from array in a scrambled order and atribute it to 
                     //variable transfromedWord
-                    string transformedWord = GetScrambledWord(word);// ////////// => TO IMPLEMENT <= //////////// //
+                    string transformedWord = GetScrambledWord(word_scramble);// ////////// => TO IMPLEMENT <= //////////// //
                     words.Add(transformedWord);
                 }
             }
