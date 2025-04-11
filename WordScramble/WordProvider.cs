@@ -25,7 +25,7 @@ namespace WordScramble
         /// </remarks>
         public WordProvider()
         {
-            random = // ////////// => TO IMPLEMENT <= //////////// //
+            random = new Random(); // ////////// => TO IMPLEMENT <= //////////// //
 
             string directoryPath = Path.GetFullPath(
                 Path.Combine(
@@ -39,7 +39,10 @@ namespace WordScramble
                 string[] fileWords = File.ReadAllLines(filePath);
                 foreach (string word in fileWords)
                 {
-                    string transformedWord = // ////////// => TO IMPLEMENT <= //////////// //
+                    // Use the GetScrambledWord method to get the current word
+                    // from array in a scrambled order and atribute it to 
+                    //variable transfromedWord
+                    string transformedWord = GetScrambledWord(word);// ////////// => TO IMPLEMENT <= //////////// //
                     words.Add(transformedWord);
                 }
             }
@@ -64,6 +67,8 @@ namespace WordScramble
         public string GetRandomWord()
         {
             // ////////// => TO IMPLEMENT <= //////////// //
+            string random_word = words[random.Next(1,16)];
+            return random_word;
         }
 
         /// <summary>
@@ -86,9 +91,16 @@ namespace WordScramble
             {
                 int j = random.Next(i, scrambled.Length);
 
-                char temp = // ////////// => TO IMPLEMENT <= //////////// //
-                scrambled[i] = // ////////// => TO IMPLEMENT <= //////////// //
-                scrambled[j] = // ////////// => TO IMPLEMENT <= //////////// //
+                // The temp variable will receive the caracter of the char array 
+                // of index i and store it.
+                // The reference of scramble variable array in position i will 
+                // be made equal
+                // to the randomly chosen index value of j.
+                // The randomly chosen position will receive the stored char
+                // in temp.
+                char temp = scrambled[i];// ////////// => TO IMPLEMENT <= //////////// //
+                scrambled[i] = scrambled[j];// ////////// => TO IMPLEMENT <= //////////// //
+                scrambled[j] = temp;// ////////// => TO IMPLEMENT <= //////////// //
             }
             return new string(scrambled);
         }

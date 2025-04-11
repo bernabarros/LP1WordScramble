@@ -52,8 +52,10 @@ namespace WordScramble
                 {
                     case "Start Game":
                         // ////////// => TO IMPLEMENT <= //////////// //
+                        StartGame();
                         break;
                     case "View Game Stats":
+                        ShowGameStats();
                         // ////////// => TO IMPLEMENT <= //////////// //
                         break;
                     case "Quit":
