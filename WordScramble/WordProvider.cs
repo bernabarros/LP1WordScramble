@@ -70,7 +70,7 @@ namespace WordScramble
         public string GetRandomWord()
         {
             // ////////// => TO IMPLEMENT <= //////////// //
-            string random_word = words[random.Next(1,16)];
+            string random_word = words[random.Next(1,15)];
             return random_word;
         }
 
